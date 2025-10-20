@@ -7,15 +7,13 @@
         <thead>
             <tr>
                 <th style="width: 30px">#</th>
-                <th>글 제목</th>
-                <th style="width: 150px">작성자</th>
+                <th>이름</th>
             </tr>
         </thead>
         <tbody>
-            <tr >
-                <td>1</td>
-                <td>제목</td>
-                <td>작성자</td>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.name}">제목</td>
             </tr>
         </tbody>
     </table>
