@@ -45,4 +45,22 @@ public class UserService {
         PageRequest pageRequest = PageRequest.of(page, size, Sort.by(sortBy).descending());
         return userRepository.findByName(name, pageRequest);
     }
+
+    @Transactional
+    public User createUser(String name, String email, int age) {
+        User newUser = new User();
+        newUser.setAge(age);
+        newUser.setName(name);
+        newUser.setEmail(email);
+
+        return userRepository.createUser(newUser);
+    }
+
+    public boolean existsByEmail(String email) {
+        return userRepository.existsByEmail(email);
+    }
+
+    public User updateUser(long id, User user) {
+        return userRepository.updateUser(id, user);
+    }
 }
